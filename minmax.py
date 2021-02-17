@@ -8,7 +8,7 @@ class minmax:
 	def players_choice(self, player, items):
 		self.choice_stack.append([])
 		for choice in items:
-			# [choice, result, result is set, search failed in this branch(can be occured?), choice list]
+			# [choice, result, result is set, search failed in this branch, choice list]
 			self.choice_stack[-1].append([choice, None, False, False, None])
 			yield choice
 		else:

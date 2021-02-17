@@ -24,6 +24,7 @@ Helper class to implement min-max algorithm in Python
 
 # Examples
 ## [AtCoder Regular Contest 112 / C - DFS Game](https://atcoder.jp/contests/arc112/tasks/arc112_c)
+- using only one player, optimization problems can be solved
 ```
 import sys
 
@@ -117,3 +118,36 @@ else:
 
 ```
 
+## [‘æŒÜ‰ñ ƒAƒ‹ƒSƒŠƒYƒ€À‹ZŒŸ’è(PAST005) / M - –_‚Ìo‰×(M - Shipping Sticks)](https://atcoder.jp/contests/past202012-open/tasks/past202012_m)
+
+```
+from minmax import minmax
+import sys
+
+N, L = map(int, input().split())
+A_list = list(map(int, input().split()))
+total = sum(A_list)
+
+def turn(game, min_length, cur_length, cur):
+	if cur == N:
+		if min_length != None and cur_length == 0:
+			game.set_result(min_length)
+		else:
+			game.set_failed()
+	else:
+		new_length = cur_length + A_list[cur]
+		for v in game.players_choice(0, range(2)):
+			if v == 0:
+				if new_length <= L:
+					game.next_turn(min(min_length, new_length), 0, cur + 1)
+				else:
+					game.set_failed()
+			else:
+				game.next_turn(min_length, new_length, cur + 1)
+
+mm = minmax(turn)
+result, choice_list = mm.simulate(L, 0, 0)
+
+print(choice_list, file = sys.stderr)
+print(result)
+```
