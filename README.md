@@ -23,7 +23,7 @@ Helper class to implement min-max algorithm in Python
 	- `choice list` is a list (tuple) of `choice`s to get the result, where `choice` is a tuple like `(who selects, which choice)`
 
 # Examples
-## [AtCoder Regular Contest 112 / C - DFS Game]https://atcoder.jp/contests/arc112/tasks/arc112_c
+## [AtCoder Regular Contest 112 / C - DFS Game](https://atcoder.jp/contests/arc112/tasks/arc112_c)
 ```
 import sys
 
