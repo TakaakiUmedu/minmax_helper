@@ -10,17 +10,17 @@ Helper class to implement min-max algorithm in Python
 			- any part out of such loops
 		- one of the following must be called just at once
 			- `game.player_choice()` funciton, called like `for choice in game.players_choice(player, choises):`
-				- `player` argument must be `0` or `1` and indicates which player in player 0 or player 1 will make the choice
+				- `player` argument must be `0` or `1` and indicates which player among player 0 and player 1 will make the choice
 				- `choices` argument indicates possible choices as list or anyother iterable object
 			- `game.set_result(result)` function with the final result value, when a game sequence is finished
 				- player 0 tryes to maximize the result, while player 1 minimize it
-			- `game.set_failed()` function, when a game sequence reached some kinds of error state with that game cannot be continued
+			- `game.set_failed()` function, when a game sequence reached some kinds of an error state with that game cannot be continued
 				- the searching branch will be ignored
-- make `mm = minmax(turn)` to make simulator
+- make `mm = minmax(turn)` to make a simulator
 - call `mm.simulate(*start state)` to solve
-- `mm.simulate()` function will returns the result as `(maximized result, choice list)`
-- `maximized result` is the maximum value for player 0 and the minimized value for player 1 that set by `game.set_result()`
-- `choice list` is a list (tuple) of `choice`s to get the result, where `choice` is a tuple like `(who selects, which choice)`
+	- `mm.simulate()` function will returns the result as `(maximized result, choice list)`
+	- `maximized result` is the maximum value for player 0 and the minimized value for player 1 that set by `game.set_result()`
+	- `choice list` is a list (tuple) of `choice`s to get the result, where `choice` is a tuple like `(who selects, which choice)`
 
 # Examples
 ## [AtCoder Regular Contest 112 / C - DFS Game]https://atcoder.jp/contests/arc112/tasks/arc112_c
