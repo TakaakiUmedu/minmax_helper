@@ -3,19 +3,19 @@ Helper class to implement min-max algorithm in Python
 
 # How to use
 - prepare `turn(gamme, *state)` function that advances the game
--- `turn()` function will be called with arguments represents the game object and the state
--- in `turn()` function, the following rule must be kept
---- in each of the following parts,
----- each iteration of loop `for choice in game.players_choice(player, choises):`
----- any part out of such loops
---- one of the following must be called just at once
----- `game.player_choice()` funciton, called like `for choice in game.players_choice(player, choises):`
------ `player` argument must be `0` or `1` and indicates which player in player 0 or player 1 will make the choice
------ `choices` argument indicates possible choices as list or anyother iterable object
----- `game.set_result(result)` function with the final result value, when a game sequence is finished
------ player 0 tryes to maximize the result, while player 1 minimize it
----- `game.set_failed()` function, when a game sequence reached some kinds of error state with that game cannot be continued
------ the searching branch will be ignored
+	- `turn()` function will be called with arguments represents the game object and the state
+	- in `turn()` function, the following rule must be kept
+		- in each of the following parts,
+			- each iteration of loop `for choice in game.players_choice(player, choises):`
+			- any part out of such loops
+		- one of the following must be called just at once
+			- `game.player_choice()` funciton, called like `for choice in game.players_choice(player, choises):`
+				- `player` argument must be `0` or `1` and indicates which player in player 0 or player 1 will make the choice
+				- `choices` argument indicates possible choices as list or anyother iterable object
+			- `game.set_result(result)` function with the final result value, when a game sequence is finished
+				- player 0 tryes to maximize the result, while player 1 minimize it
+			- `game.set_failed()` function, when a game sequence reached some kinds of error state with that game cannot be continued
+				- the searching branch will be ignored
 - make `mm = minmax(turn)` to make simulator
 - call `mm.simulate(*start state)` to solve
 - `mm.simulate()` function will returns the result as `(maximized result, choice list)`
